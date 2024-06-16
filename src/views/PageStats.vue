@@ -70,6 +70,7 @@ const setChartData = () => {
   }
 }
 
+// @ts-ignore
 const setChartOptions = () => {
   const documentStyle = getComputedStyle(document.documentElement)
   const textColor = documentStyle.getPropertyValue('--text-color')
