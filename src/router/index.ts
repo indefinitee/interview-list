@@ -1,7 +1,7 @@
 import { useUserStore } from '@/stores/user'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import type { NavigationGuardNext, RouteLocationNormalized, RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
 const checkAuth = (
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
@@ -24,7 +24,8 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/PageHome.vue')
+    component: () => import('@/views/PageHome.vue'),
+    beforeEnter: checkAuth
   },
   {
     path: '/auth',
