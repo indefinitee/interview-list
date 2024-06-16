@@ -16,7 +16,7 @@ const userStore = useUserStore()
 const db = getFirestore()
 const interviews = ref<IInterview[]>([])
 const chartData = ref();
-const chartOptions = ref(null);
+const chartOptions = ref();
 
 
 onMounted(async () => {
@@ -70,7 +70,6 @@ const setChartData = () => {
   }
 }
 
-// @ts-ignore
 const setChartOptions = () => {
   const documentStyle = getComputedStyle(document.documentElement)
   const textColor = documentStyle.getPropertyValue('--text-color')
