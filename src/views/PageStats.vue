@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import type { IInterview } from '@/interfaces'
-import { useUserStore } from '@/stores/user'
+import type { IInterview } from '@/interfaces';
+import { useUserStore } from '@/stores/user';
 import {
   collection,
   deleteDoc,
@@ -9,8 +8,9 @@ import {
   getDocs,
   getFirestore,
   orderBy,
-	query
-} from 'firebase/firestore'
+  query
+} from 'firebase/firestore';
+import { onMounted, ref } from "vue";
 
 const userStore = useUserStore()
 const db = getFirestore()
@@ -68,23 +68,23 @@ const setChartData = () => {
       }
     ]
   }
-};
-// 
-const setChartOptions = () => {
-	const documentStyle = getComputedStyle(document.documentElement);
-	const textColor = documentStyle.getPropertyValue('--text-color')
+}
 
-	return {
-			plugins: {
-					legend: {
-							labels: {
-									cutout: '60%',
-									color: textColor
-							}
-					}
-			}
-	};
-};
+const setChartOptions = () => {
+  const documentStyle = getComputedStyle(document.documentElement)
+  const textColor = documentStyle.getPropertyValue('--text-color')
+
+  return {
+    plugins: {
+      legend: {
+        labels: {
+          cutout: '60%',
+          color: textColor
+        }
+      }
+    }
+  }
+}
 </script>
 
 <template>
